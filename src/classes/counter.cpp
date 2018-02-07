@@ -3,19 +3,6 @@
 
 using namespace std;
 
-class Car
-{
-private:
-  int speed = 0;
-  int steer = 10;
-
-public:
-  int drive(void)
-  {
-    cout << speed << " " << steer << endl;
-  }
-};
-
 int main(void)
 {
 
