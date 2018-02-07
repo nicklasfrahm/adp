@@ -8,7 +8,7 @@
 class Adder
 {
 private:
-  int sum = 0;
+  int sum;
 
 public:
   Adder(int n);
@@ -18,7 +18,7 @@ public:
   void set(int n);
 };
 
-Adder::Adder(int n) : sum(n) {}
+Adder::Adder(int n = 0) : sum(n) {}
 
 void Adder::add(int n)
 {

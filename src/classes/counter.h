@@ -8,7 +8,7 @@
 class Counter
 {
 private:
-  int value = 0;
+  int value;
 
 public:
   Counter(int n);
@@ -19,7 +19,7 @@ public:
   void set(int n);
 };
 
-Counter::Counter(int n) : value(n) {}
+Counter::Counter(int n = 0) : value(n) {}
 
 void Counter::reset(void)
 {
