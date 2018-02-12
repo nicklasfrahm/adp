@@ -36,7 +36,24 @@ public:
 
 void Fraction::reduce(void)
 {
-  // reduce fraction
+
+  if (!nominator || !denominator)
+  {
+    return;
+  }
+
+  int divisor = nominator > denominator ? denominator : nominator;
+
+  while (divisor)
+  {
+    if (!(nominator % divisor) && !(denominator % divisor))
+    {
+      nominator /= divisor;
+      denominator /= divisor;
+      return;
+    }
+    --divisor;
+  }
 }
 
 Fraction::Fraction(int n = 1, int d = 1) : nominator(n), denominator(d)
