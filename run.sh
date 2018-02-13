@@ -23,7 +23,7 @@ fi
 
 # compile source file
 echo -e "${BLUE}Compiling source file ...${RESET}"
-g++ $SOURCEFILE -o $1.exe
+g++ "$SOURCEFILE" -o $1.exe
 
 # execute .exe file
 echo -e "${BLUE}Executing source file:${RESET}"
