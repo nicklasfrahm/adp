@@ -37,6 +37,8 @@ public:
   void sub(Fraction f);
   void mul(Fraction f);
   void div(Fraction f);
+  int get_nominator(void);
+  int get_denominator(void);
 };
 
 Fraction::Fraction(int n = 1, int d = 1) : nominator(n), denominator(d)
@@ -127,4 +129,42 @@ void Fraction::div(Fraction f)
 
   sort();
   reduce();
+}
+
+int Fraction::get_nominator(void)
+{
+  return nominator;
+}
+
+int Fraction::get_denominator(void)
+{
+  return denominator;
+}
+
+Fraction add(Fraction f, Fraction g)
+{
+  Fraction fraction(f.get_nominator(), f.get_denominator());
+  fraction.add(g);
+  return fraction;
+}
+
+Fraction sub(Fraction f, Fraction g)
+{
+  Fraction fraction(f.get_nominator(), f.get_denominator());
+  fraction.sub(g);
+  return fraction;
+}
+
+Fraction mul(Fraction f, Fraction g)
+{
+  Fraction fraction(f.get_nominator(), f.get_denominator());
+  fraction.mul(g);
+  return fraction;
+}
+
+Fraction div(Fraction f, Fraction g)
+{
+  Fraction fraction(f.get_nominator(), f.get_denominator());
+  fraction.div(g);
+  return fraction;
 }
