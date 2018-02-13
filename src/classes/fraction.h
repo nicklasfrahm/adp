@@ -28,15 +28,34 @@ private:
   int nominator;
   int denominator;
   void reduce(void);
+  void sort(void);
 
 public:
   Fraction(int n, int d);
   void print(void);
+  void add(Fraction f);
+  void sub(Fraction f);
+  void mul(Fraction f);
+  void div(Fraction f);
 };
+
+Fraction::Fraction(int n = 1, int d = 1) : nominator(n), denominator(d)
+{
+  sort();
+  reduce();
+}
+
+void Fraction::sort(void)
+{
+  if (denominator < 0)
+  {
+    denominator *= -1;
+    nominator *= -1;
+  }
+}
 
 void Fraction::reduce(void)
 {
-
   if (!nominator || !denominator)
   {
     return;
@@ -50,18 +69,62 @@ void Fraction::reduce(void)
     {
       nominator /= divisor;
       denominator /= divisor;
-      return;
+      break;
     }
     --divisor;
   }
-}
 
-Fraction::Fraction(int n = 1, int d = 1) : nominator(n), denominator(d)
-{
-  this.reduce()
+  sort();
 }
 
 void Fraction::print(void)
 {
-  std::cout << '(' << nominator << '/' << denominator << ')' << std::endl;
+  std::cout << nominator << '/' << denominator << std::endl;
+}
+
+void Fraction::add(Fraction f)
+{
+  if (denominator != f.denominator)
+  {
+    nominator = nominator * f.denominator + f.nominator * denominator;
+    denominator = f.denominator * denominator;
+  }
+  else
+  {
+    nominator += f.nominator;
+  }
+
+  reduce();
+}
+
+void Fraction::sub(Fraction f)
+{
+  if (denominator != f.denominator)
+  {
+    nominator = nominator * f.denominator - f.nominator * denominator;
+    denominator = f.denominator * denominator;
+  }
+  else
+  {
+    nominator -= f.nominator;
+  }
+
+  reduce();
+}
+
+void Fraction::mul(Fraction f)
+{
+  nominator *= f.nominator;
+  denominator *= f.denominator;
+
+  reduce();
+}
+
+void Fraction::div(Fraction f)
+{
+  nominator *= f.denominator;
+  denominator *= f.nominator;
+
+  sort();
+  reduce();
 }
