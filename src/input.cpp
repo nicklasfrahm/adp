@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 int main(void)
 {
@@ -7,7 +6,7 @@ int main(void)
 
   std::cout << "Username: ";
   std::getline(std::cin, username);
-  std::cout << "Hello, " << username << std::endl;
+  std::cout << "Hello, " << username << "!" << std::endl;
 
   return 0;
 }
