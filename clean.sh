@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
-# remove all exe files
-rm -rf *.exe
+BLUE='\033[1;34m'
+RESET='\033[0m'
+
+# remove all .elf files
+echo -e "${BLUE}Removing binaries ...${RESET}"
+rm -rf *.elf

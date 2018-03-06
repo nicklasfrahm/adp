@@ -6,7 +6,7 @@ RESET='\033[0m'
 
 if [ -z "$*" ]
 then
-  echo -e "${RED}Supply at least one argument like so:${RESET} ./exe.sh counter"
+  echo -e "${RED}Supply at least one argument like so:${RESET} ./compile.sh counter"
   exit 1
 fi
 
@@ -23,4 +23,4 @@ fi
 
 # compile source file
 echo -e "${BLUE}Compiling source file ...${RESET}"
-g++ "$SOURCEFILE" -o $1.exe
+g++ "$SOURCEFILE" -o $1.elf

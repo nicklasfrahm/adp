@@ -6,7 +6,7 @@ RESET='\033[0m'
 
 if [ -z "$*" ]
 then
-  echo -e "${RED}Supply at least one argument like so:${RESET} ./exe.sh counter"
+  echo -e "${RED}Supply at least one argument like so:${RESET} ./run.sh counter"
   exit 1
 fi
 
@@ -23,13 +23,13 @@ fi
 
 # compile source file
 echo -e "${BLUE}Compiling source file ...${RESET}"
-g++ "$SOURCEFILE" -o $1.exe
+g++ "$SOURCEFILE" -o $1.elf
 
-# execute .exe file
+# execute .elf file
 echo -e "${BLUE}Executing source file:${RESET}"
-./$1.exe
+./$1.elf
 
 # clean up
 echo -e "${BLUE}Cleaning up binaries ...${RESET}"
-rm $1.exe
-echo -e "${BLUE}Removed binary:${RESET} $1.exe"
+rm $1.elf
+echo -e "${BLUE}Removed binary:${RESET} $1.elf"
