@@ -1,4 +1,4 @@
-template <class T, int SIZE>
+template <class T, int SIZE = 10>
 class RingBuffer
 {
 public:
